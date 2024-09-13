@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bl1st0uu818jx"]
+
+[ext_resource type="FontFile" uid="uid://0vkr7mnpb6tm" path="res://fonts/Renogare-Regular.otf" id="1_12cvm"]
+
+[resource]
+default_font = ExtResource("1_12cvm")
+default_font_size = 24
+MarginContainer/constants/margin_bottom = 16
+MarginContainer/constants/margin_left = 16
+MarginContainer/constants/margin_right = 16
+MarginContainer/constants/margin_top = 16

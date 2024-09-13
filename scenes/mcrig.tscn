@@ -47,6 +47,7 @@ bind/6/pose = Transform3D(2.08333, -4.50952e-14, 3.14575e-07, 4.50952e-14, -2.08
 [sub_resource type="Animation" id="Animation_ha5w8"]
 resource_name = "Walk"
 length = 0.833333
+loop_mode = 1
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
