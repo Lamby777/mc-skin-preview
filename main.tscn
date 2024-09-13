@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://copmy6npgg4ti"]
+[gd_scene load_steps=7 format=3 uid="uid://copmy6npgg4ti"]
 
 [ext_resource type="PackedScene" uid="uid://cdxo5b3m6kdl3" path="res://mcrig.tscn" id="1_3ajbt"]
 
@@ -7,6 +7,15 @@
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_w0snw"]
 
 [sub_resource type="Compositor" id="Compositor_a3o6s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pxdyd"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_246eb"]
+material = SubResource("StandardMaterial3D_pxdyd")
+top_radius = 0.6
+bottom_radius = 0.75
+height = 0.2
+radial_segments = 16
 
 [node name="Main" type="Node3D"]
 
@@ -19,7 +28,14 @@ compositor = SubResource("Compositor_a3o6s")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
 current = true
 
-[node name="Rig" parent="." instance=ExtResource("1_3ajbt")]
+[node name="3DWorld" type="Node3D" parent="."]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="Plate" type="MeshInstance3D" parent="3DWorld"]
+mesh = SubResource("CylinderMesh_246eb")
+skeleton = NodePath("../..")
+
+[node name="Rig" parent="3DWorld" instance=ExtResource("1_3ajbt")]
+transform = Transform3D(0.48, 0, 0, 0, 0.48, 0, 0, 0, 0.48, 0, 0.1, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="3DWorld"]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 3, 4)
