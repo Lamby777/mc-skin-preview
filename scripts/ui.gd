@@ -6,9 +6,10 @@ extends Control
 @export var FOLDER_PATH_BTN: Button
 @export var FOLDER_DIALOG: FileDialog
 
+signal file_picked(filename: String)
+
 func _ready():
     refresh_labels()
-
 
 func get_file_names():
     var folder = Global.prefs.get("baseFolder")
@@ -22,14 +23,21 @@ func refresh_labels():
     var file_names = get_file_names()
 
     # Remove all existing labels.
-    for child in get_children():
-        if child is Label:
+    for child in FILE_NAMES_CONTAINER.get_children():
+        if child is RichTextLabel:
             child.queue_free()
 
-    for file_name in file_names:
+    for filename in file_names:
         var label = LABEL_SCENE.instantiate()
-        label.text = file_name
+        label.text = filename
+        label.connect("file_pressed", on_file_picked)
         FILE_NAMES_CONTAINER.add_child(label)
+
+func on_file_picked(filename: String):
+    # Refresh to update the labels in case new stuff got added/removed
+    # refresh_labels()
+
+    file_picked.emit(filename)
 
 func _on_folderopen_pressed():
     FOLDER_DIALOG.popup_centered()

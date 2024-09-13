@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://cdxo5b3m6kdl3"]
+[gd_scene load_steps=7 format=4 uid="uid://cdxo5b3m6kdl3"]
 
+[ext_resource type="Script" path="res://scripts/rig.gd" id="1_4oloa"]
 [ext_resource type="Material" uid="uid://bcadplaixqtmt" path="res://textures/mcrig.tres" id="1_nqox2"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_gkra5"]
@@ -82,8 +83,10 @@ _data = {
 "Walk": SubResource("Animation_ha5w8")
 }
 
-[node name="MCRig" type="Node3D"]
+[node name="MCRig" type="Node3D" node_paths=PackedStringArray("mesh")]
 transform = Transform3D(0.48, 0, 0, 0, 0.48, 0, 0, 0, 0.48, 0, 0, 0)
+script = ExtResource("1_4oloa")
+mesh = NodePath("Skeleton/YuriMesh")
 
 [node name="Skeleton" type="Skeleton3D" parent="."]
 bones/0/name = "Root"
