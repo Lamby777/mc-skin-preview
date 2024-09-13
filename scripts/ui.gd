@@ -27,7 +27,6 @@ func refresh_labels():
             child.queue_free()
 
     for file_name in file_names:
-        print("Adding label for file name: " + file_name)
         var label = LABEL_SCENE.instantiate()
         label.text = file_name
         FILE_NAMES_CONTAINER.add_child(label)

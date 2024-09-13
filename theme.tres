@@ -4,7 +4,7 @@
 
 [resource]
 default_font = ExtResource("1_12cvm")
-default_font_size = 24
+default_font_size = 20
 MarginContainer/constants/margin_bottom = 16
 MarginContainer/constants/margin_left = 16
 MarginContainer/constants/margin_right = 16

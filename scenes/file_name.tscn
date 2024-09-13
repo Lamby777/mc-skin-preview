@@ -4,12 +4,14 @@
 [ext_resource type="Script" path="res://scripts/file_name.gd" id="1_oyhu7"]
 
 [node name="FileName" type="RichTextLabel"]
-custom_minimum_size = Vector2(250, 0)
+custom_minimum_size = Vector2(250, 24)
+offset_right = 250.0
+offset_bottom = 24.0
 focus_mode = 2
 theme = ExtResource("1_374do")
 bbcode_enabled = true
 text = "File Name"
-fit_content = true
+scroll_active = false
 script = ExtResource("1_oyhu7")
 FOCUSED_COLOR = Color(0.940309, 0.364591, 0, 1)
 
