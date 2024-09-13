@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://copmy6npgg4ti"]
+[gd_scene load_steps=10 format=3 uid="uid://copmy6npgg4ti"]
 
 [ext_resource type="PackedScene" uid="uid://cdxo5b3m6kdl3" path="res://scenes/mcrig.tscn" id="1_420mi"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_n32xj"]
 [ext_resource type="Script" path="res://scripts/mcrig.gd" id="2_gkahs"]
 [ext_resource type="PackedScene" uid="uid://b7bc746uvjuqf" path="res://scenes/ui.tscn" id="3_wkv36"]
 
@@ -19,7 +20,9 @@ bottom_radius = 0.75
 height = 0.2
 radial_segments = 16
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("UI")]
+script = ExtResource("1_n32xj")
+UI = NodePath("UI")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3badj")

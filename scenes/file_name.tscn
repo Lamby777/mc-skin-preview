@@ -1,11 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cldm12slbm18a"]
+[gd_scene load_steps=3 format=3 uid="uid://cldm12slbm18a"]
 
+[ext_resource type="Theme" uid="uid://bl1st0uu818jx" path="res://theme.tres" id="1_374do"]
 [ext_resource type="Script" path="res://scripts/file_name.gd" id="1_oyhu7"]
 
 [node name="FileName" type="RichTextLabel"]
+custom_minimum_size = Vector2(250, 0)
 focus_mode = 2
+theme = ExtResource("1_374do")
 bbcode_enabled = true
-text = "[center]File Name"
+text = "File Name"
 fit_content = true
 script = ExtResource("1_oyhu7")
 FOCUSED_COLOR = Color(0.940309, 0.364591, 0, 1)
