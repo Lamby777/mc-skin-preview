@@ -7,20 +7,18 @@ extends Control
 @export var FOLDER_DIALOG: FileDialog
 
 func _ready():
-    refresh_file_name_labels()
+    refresh_labels()
 
-func set_folder_path_label_text(text: String):
-    FOLDER_PATH_BTN.text = text
 
 func get_file_names():
-    return [
-        "Skin A",
-        "Skin B",
-        "Skin C",
-        "Skin D",
-    ]
+    var folder = Global.prefs.get("baseFolder")
+    if not folder:
+        return []
+    return DirAccess.open(folder).get_files()
 
-func refresh_file_name_labels():
+func refresh_labels():
+    FOLDER_PATH_BTN.text = Global.prefs.get("baseFolder", "<SELECT FOLDER>")
+
     var file_names = get_file_names()
 
     # Remove all existing labels.
@@ -41,3 +39,5 @@ func _on_folderopen_pressed():
     print("Selected folder: " + path)
     Global.prefs["baseFolder"] = path
     Global.save_prefs()
+
+    refresh_labels()
