@@ -1,9 +1,11 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://bcadplaixqtmt"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bcadplaixqtmt"]
+
+[ext_resource type="Texture2D" uid="uid://cml7m35ino7bm" path="res://textures/ddyuri5.png" id="1_jnii4"]
 
 [resource]
 transparency = 3
 alpha_hash_scale = 1.0
 alpha_antialiasing_mode = 1
 alpha_antialiasing_edge = 0.0
-albedo_texture = null
+albedo_texture = ExtResource("1_jnii4")
 texture_filter = 0
