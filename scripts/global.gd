@@ -13,3 +13,10 @@ func load_prefs():
         prefs = JSON.parse_string(save_file.get_as_text())
     else:
         prefs = {}
+
+func _ready():
+    save_prefs({"baseFolder": "/home/refcherry/Pictures/MCSkins/"})
+
+    print("Loading preferences...")
+    Global.load_prefs()
+    print("Preferences loaded.")
