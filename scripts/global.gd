@@ -2,9 +2,9 @@ extends Node
 
 @export var prefs = {}
 
-func save_prefs(data):
+func save_prefs():
     var save_file = FileAccess.open("user://prefs.save", FileAccess.WRITE)
-    save_file.store_string(JSON.stringify(data))
+    save_file.store_string(JSON.stringify(prefs))
 
 func load_prefs():
     var save_file = FileAccess.open("user://prefs.save", FileAccess.READ)
@@ -15,8 +15,6 @@ func load_prefs():
         prefs = {}
 
 func _ready():
-    save_prefs({"baseFolder": "/home/refcherry/Pictures/MCSkins/"})
-
     print("Loading preferences...")
     Global.load_prefs()
     print("Preferences loaded.")

@@ -4,6 +4,7 @@ extends Control
 @export var LABEL_SCENE: PackedScene
 @export var FILE_NAMES_CONTAINER: VBoxContainer
 @export var FOLDER_PATH_BTN: Button
+@export var FOLDER_DIALOG: FileDialog
 
 func _ready():
     refresh_file_name_labels()
@@ -34,4 +35,9 @@ func refresh_file_name_labels():
         FILE_NAMES_CONTAINER.add_child(label)
 
 func _on_folderopen_pressed():
-    pass # Replace with function body.
+    FOLDER_DIALOG.popup_centered()
+    var path = await FOLDER_DIALOG.dir_selected
+
+    print("Selected folder: " + path)
+    Global.prefs["baseFolder"] = path
+    Global.save_prefs()
